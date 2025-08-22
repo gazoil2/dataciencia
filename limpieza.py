@@ -8,16 +8,15 @@ sedes_df = pd.read_csv(path + 'sedes.csv')
 sedes_completos = pd.read_csv(path + 'sedes-completos.csv')
 secciones_df = pd.read_csv(path + 'secciones.csv')
 
-# RELEVANCIA Y DATOS NO NULOS
-gdp_2024 = gdp_df[["Country Code", "Country Name", "2024"]].dropna()
-cant_secciones = secciones_df.groupby('sede_id').size().reset_index(name='counts')
-cant_sedes = (
-    sedes_df.groupby('pais_iso_3')['sede_id']
-    .apply(list)          # junta todos los id_sede en una lista
-    .reset_index(name='ids')
-)
+# RELEVANCIA
+gdp_2023 = gdp_df[["Country Code", "Country Name", "2023"]].dropna()
+gdp_2023.to_csv('TablasLimpias/gdp_2023.csv', index=False)
 
-# Si también querés la cantidad:
-cant_sedes['counts'] = cant_sedes['ids'].apply(len)
+sedes_df = sedes_df[["sede_id", "pais_iso_3"]]
+sedes_df.to_csv('TablasLimpias/sedes.csv', index=False)
 
-print(cant_sedes)
+sedes_completos = sedes_completos[["sede_id", "pais_iso_3","region_geografica", "redes_sociales"]]
+sedes_completos.to_csv('TablasLimpias/sedes_completos.csv', index=False)
+
+secciones_df = secciones_df[["sede_id"]]
+secciones_df.to_csv('TablasLimpias/secciones.csv', index=False)
