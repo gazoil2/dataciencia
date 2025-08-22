@@ -37,6 +37,14 @@ for key in paises_redes.keys():
             redes_actualizadas.add('Facebook')
         elif 'twitter.com' in red.lower() or 'x.com' in red.lower():
             redes_actualizadas.add('Twitter')
+        elif "instagram.com" in red.lower():
+            redes_actualizadas.add('Instagram')
+        elif "linkedin.com" in red.lower():
+            redes_actualizadas.add('LinkedIn')
+        elif "youtube.com" in red.lower():
+            redes_actualizadas.add('YouTube')
+        elif "flickr.com" in red.lower():
+            redes_actualizadas.add('Flickr')
         else:
             redes_actualizadas.add(red)
     paises_redes[key] = redes_actualizadas
