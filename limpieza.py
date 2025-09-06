@@ -12,11 +12,9 @@ secciones_df = pd.read_csv(path + 'secciones.csv')
 gdp_2023 = gdp_df[["Country Code", "Country Name", "2023"]].dropna()
 gdp_2023.to_csv('TablasLimpias/gdp_2023.csv', index=False)
 
-sedes_df = sedes_df[["sede_id", "pais_iso_3"]]
-sedes_df.to_csv('TablasLimpias/sedes.csv', index=False)
 
 sedes_completos = sedes_completos[["sede_id", "pais_iso_3","region_geografica", "redes_sociales", "pais_ingles"]]
 sedes_completos.to_csv('TablasLimpias/sedes_completos.csv', index=False)
 
-secciones_df = secciones_df[["sede_id"]]
+secciones_df = secciones_df[["sede_id"]].dropna()
 secciones_df.to_csv('TablasLimpias/secciones.csv', index=False)

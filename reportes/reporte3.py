@@ -49,7 +49,6 @@ for key in paises_redes.keys():
             redes_actualizadas.add(red)
     paises_redes[key] = redes_actualizadas
 
-print("\nRedes después de normalizar:", paises_redes)
 # Convertir el diccionario a DataFrame
 variedades_redes = pd.DataFrame([
     {'País': pais, 'Cantidad de Redes Sociales Diferentes': len(redes)}

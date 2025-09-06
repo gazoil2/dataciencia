@@ -8,9 +8,9 @@ pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
 pd.set_option('display.width', None)
 pd.set_option('display.max_colwidth', None)
-
+path = "TablasLimpias/"
 # Leer el archivo de sedes completos
-sedes_df = pd.read_csv('TablasLimpias/sedes_completos.csv')
+sedes_df = pd.read_csv(path + 'sedes_completos.csv')
 
 # Función para separar las redes sociales y clasificarlas
 def procesar_redes_sociales(redes):

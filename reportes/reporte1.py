@@ -24,7 +24,7 @@ pd.set_option('display.max_columns', None)
 
 path = "TablasLimpias/"
 
-sedes_df = pd.read_csv(path + 'sedes.csv')
+sedes_df = pd.read_csv(path + 'sedes_completos.csv')
 secciones_df = pd.read_csv(path + 'secciones.csv')
 gdp_df = pd.read_csv(path + 'gdp_2023.csv')
 
