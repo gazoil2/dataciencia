@@ -1,6 +1,6 @@
 import pandas as pd
-path = "TablasLimpias/"
-sedes_df = pd.read_csv(path + 'sedes_completos.csv')
+path = "TablasOriginales/"
+sedes_df = pd.read_csv(path + 'sedes-completos.csv')
 from colorama import init, Fore, Style
 
 
@@ -91,7 +91,7 @@ def replace_social_media_with_normalized():
     )
     sedes_df.to_csv("TablasLimpias/sedes_completos.csv", index=False)
 
-replace_social_media_with_normalized()
+#replace_social_media_with_normalized()
 results = analyze_social_media_format()
 
 print(f"\n{Fore.CYAN}Análisis de Formato de URLs:{Style.RESET_ALL}")
