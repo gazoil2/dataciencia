@@ -66,10 +66,7 @@ relacion_df = sedes_por_pais.merge(gdp_df,
 # Create scatter plot
 sns.scatterplot(data=relacion_df,
                 x='2023',
-                y='cantidad_sedes',
-                size='cantidad_sedes',  # Point size varies with number of sedes
-                sizes=(50, 400),        # Range of point sizes
-                alpha=0.6)              # Transparency
+                y='cantidad_sedes')              # Transparency
 
 plt.title('Relación entre PBI per Cápita y Cantidad de Sedes por País', pad=20)
 plt.xlabel('PBI per Cápita 2023')
