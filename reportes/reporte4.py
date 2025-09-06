@@ -17,7 +17,7 @@ def procesar_redes_sociales(redes):
     if pd.isna(redes):
         return []
 
-    urls = [url.strip() for url in redes.split('//') if url.strip()]
+    urls = [url.strip() for url in redes.split(' // ') if url.strip()]
     resultado = []
 
     for url in urls:
@@ -32,6 +32,8 @@ def procesar_redes_sociales(redes):
             red_social = 'LinkedIn'
         elif 'youtube' in url.lower():
             red_social = 'YouTube'
+        elif 'flickr' in url.lower():
+            red_social = 'Flickr'
         else:
             red_social = 'Otra'
 
@@ -64,3 +66,5 @@ if len(reporte) > 0:
 else:
     print("No se encontraron redes sociales registradas.")
 print("=" * 120)
+
+reporte.to_csv('reportes/csv/reporte4.csv', index=False)

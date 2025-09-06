@@ -1,7 +1,10 @@
 import pandas as pd
 path = "TablasLimpias/"
-sedes_df = pd.read_csv(path + 'sedes_completos2.csv')
+sedes_df = pd.read_csv(path + 'sedes_completos.csv')
+from colorama import init, Fore, Style
 
+
+init()
 # ...existing code...
 
 def normalize_social_media_format(url):
@@ -86,19 +89,36 @@ def replace_social_media_with_normalized():
     sedes_df['redes_sociales'] = sedes_df['redes_sociales'].apply(
         lambda x: '  //  '.join([normalize_social_media_format(url) for url in x.split('  //  ')]) if pd.notna(x) else x
     )
-    sedes_df.to_csv("TablasLimpias/sedes_completos2.csv", index=False)
+    sedes_df.to_csv("TablasLimpias/sedes_completos.csv", index=False)
 
-# Run analysis and display results
 replace_social_media_with_normalized()
 results = analyze_social_media_format()
-print("\nAnálisis de Formato de URLs:")
-print("==================================")
-print(f"Entradas totales: {results['total_entries']}")
-print(f"URLs completas: {results['complete_urls']}")
-print(f"Solo handle: {results['handle_only']}")
-print(f"Correos Gmail: {results['gmail']}")
-print(f"Formato faltante: {results['missing']}")
-print(f"Formato desconocido: {results['unknown']}")
-print(f"Porcentaje de URLs completas: {results['url_percentage']}%")
 
-print("==================================")
+print(f"\n{Fore.CYAN}Análisis de Formato de URLs:{Style.RESET_ALL}")
+print("=" * 50)
+
+def get_percentage_color(value):
+    if value > 90:
+        return Fore.GREEN
+    elif value > 50:
+        return Fore.YELLOW
+    return Fore.RED
+
+metrics = {
+    "Entradas totales": results['total_entries'],
+    "URLs completas": results['complete_urls'],
+    "Solo handle": results['handle_only'],
+    "Correos Gmail": results['gmail'],
+    "Formato faltante": results['missing'],
+    "Formato desconocido": results['unknown']
+}
+
+for label, value in metrics.items():
+    print(f"{Fore.BLUE}{label}:{Style.RESET_ALL} {value}")
+
+# Print percentage with color based on value
+url_percentage = results['url_percentage']
+percentage_color = get_percentage_color(url_percentage)
+print(f"{Fore.BLUE}Porcentaje de URLs completas:{Style.RESET_ALL} {percentage_color}{url_percentage}%{Style.RESET_ALL}")
+
+print(f"{Fore.CYAN}{'=' * 50}{Style.RESET_ALL}")
