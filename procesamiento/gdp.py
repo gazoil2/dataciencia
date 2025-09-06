@@ -48,4 +48,4 @@ def show_data_analysis(results, name):
 
 # Mostrar resultados y correr el analisis de ambos dataframe
 show_data_analysis(analyze_gdp_data(gdp_df), f"Análisis de Datos PBI {YEAR}:")
-#show_data_analysis(analyze_gdp_data(gdp_2023_corrected_df), "Valores corregidos del PBI 2023:")
+show_data_analysis(analyze_gdp_data(gdp_2023_corrected_df), f"Valores corregidos del PBI {YEAR}:")
