@@ -36,7 +36,7 @@ medianas = datos_unidos.groupby('region_geografica')['2023'].median()
 orden_regiones = medianas.sort_values(ascending=False).index
 
 # Create boxplot
-plt.figure(figsize=(12, 6))
+plt.figure(figsize=(19, 8))
 sns.boxplot(data=datos_unidos,
            x='region_geografica',
            y='2023',
