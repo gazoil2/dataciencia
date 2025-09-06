@@ -13,13 +13,15 @@ resultado = paises_con_sedes.merge(gdp_df,
                                  left_on='pais_iso_3', 
                                  right_on='Country Code',
                                  how='left')
-reporte = resultado.groupby('region_geografica').agg({
+reporte2 = resultado.groupby('region_geografica').agg({
     'pais_iso_3': 'count', 
     '2023': 'mean'
 }).reset_index()
-reporte.columns = ['Region Geografica', 'Cantidad de Paises', 'PBI per Capita Promedio']
-reporte = reporte.sort_values('PBI per Capita Promedio', ascending=False)
+reporte2.columns = ['Region Geografica', 'Cantidad de Paises', 'PBI per Capita Promedio']
+reporte2 = reporte2.sort_values('PBI per Capita Promedio', ascending=False)
 print("\nReporte por Región Geográfica:")
 print("=" * 100)
-print(reporte.to_string(index=False))
+print(reporte2.to_string(index=False))
 print("=" * 100)
+
+reporte2.to_csv('reportes/csv/reporte2.csv', index=False)
