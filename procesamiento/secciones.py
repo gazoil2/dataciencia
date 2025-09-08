@@ -125,5 +125,5 @@ print(f"- Porcentaje promedio de valores faltantes: {cleaned_missing_total/clean
 secciones_cleaned.dropna(subset="sede_id", inplace=True)
 # Save cleaned dataset
 secciones_cleaned.to_csv('TablasLimpias/secciones.csv', index=False)
-print(f"\n{Fore.GREEN}Dataset limpio guardado como 'secciones_cleaned.csv'{Style.RESET_ALL}")
+print(f"\n{Fore.GREEN}Dataset limpio guardado como 'secciones.csv'{Style.RESET_ALL}")
 print("=" * 50)
