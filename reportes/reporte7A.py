@@ -55,4 +55,4 @@ print("=" * 70)
 print(reporte1.to_string(index=False))
 print("=" * 70)
 
-reporte1.to_csv('reportes/csv/reporte1.csv', index=False)
+reporte1.to_csv('reportes/csv/reporte7A.csv', index=False)

@@ -24,4 +24,4 @@ print("=" * 100)
 print(reporte2.to_string(index=False))
 print("=" * 100)
 
-reporte2.to_csv('reportes/csv/reporte2.csv', index=False)
+reporte2.to_csv('reportes/csv/reporte7B.csv', index=False)

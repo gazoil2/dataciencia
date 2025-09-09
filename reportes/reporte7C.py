@@ -67,7 +67,7 @@ print("=" * 50)
 print(variedades_redes.to_string(index=False))
 print("=" * 50)
 
-variedades_redes.to_csv('reportes/csv/reporte3.csv', index=False)
+variedades_redes.to_csv('reportes/csv/reporte7C.csv', index=False)
 # Mostrar el detalle de tipos de redes por país
 print("\nDetalle de tipos de redes por país:")
 print("=" * 50)

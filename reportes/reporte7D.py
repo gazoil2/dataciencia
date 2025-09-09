@@ -67,4 +67,4 @@ else:
     print("No se encontraron redes sociales registradas.")
 print("=" * 120)
 
-reporte.to_csv('reportes/csv/reporte4.csv', index=False)
+reporte.to_csv('reportes/csv/reporte7D.csv', index=False)

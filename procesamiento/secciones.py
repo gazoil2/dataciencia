@@ -85,13 +85,33 @@ original_metrics = {
     'completeness': overall_completeness
 }
 
-# Identify and drop columns with >90% missing values
-columns_to_drop = missing_percentages[missing_percentages > 90].index
-secciones_cleaned = secciones.drop(columns=columns_to_drop)
+# Modified column dropping section
+print(f"\n{Fore.CYAN}Proceso de limpieza de columnas:{Style.RESET_ALL}")
+print("=" * 50)
 
-print(f"\n{Fore.RED}Columnas eliminadas (>90% valores faltantes):{Style.RESET_ALL}")
+# More explicit column dropping with verification
+columns_to_drop = []
+for column, percentage in missing_percentages.items():
+    if percentage > 90:
+        columns_to_drop.append(column)
+        print(f"Marcando para eliminar: {column} ({percentage:.2f}% valores faltantes)")
+
+# Verify columns exist before dropping
+secciones_cleaned = secciones.copy()
+actually_dropped = []
 for col in columns_to_drop:
+    if col in secciones_cleaned.columns:
+        secciones_cleaned.drop(columns=col, inplace=True)
+        actually_dropped.append(col)
+
+print(f"\n{Fore.GREEN}Columnas efectivamente eliminadas:{Style.RESET_ALL}")
+for col in actually_dropped:
     print(f"- {col}: {missing_percentages[col]:.2f}% faltante")
+
+print(f"\n{Fore.YELLOW}Verificación:{Style.RESET_ALL}")
+print(f"Columnas originales: {len(secciones.columns)}")
+print(f"Columnas eliminadas: {len(actually_dropped)}")
+print(f"Columnas restantes: {len(secciones_cleaned.columns)}")
 
 # Recalculate metrics for cleaned dataset
 cleaned_total_columns = len(secciones_cleaned.columns)
